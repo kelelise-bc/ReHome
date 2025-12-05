@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="author" content="Kelly Daniel" />
+    <title>ReHome</title>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- GLOBAL CSS -->
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body class="browse-page">
+    <!-- GLOBAL HEADER -->
+    <header>
+      <div class="header-inner">
+        <a href="../index.html">
+          <img
+            src="../images/Logo-Img-Green.png"
+            alt="ReHome Logo"
+            class="site-logo"
+          />
+        </a>
+
+        <h1 class="site-title">
+          Browse
+          <span class="divider">|</span>
+          <span class="sub-secondary">Items ready for a new home</span>
+        </h1>
+      </div>
+    </header>
+
+    <!-- NAV -->
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="./rehome-browse.html">Browse</a>
+      <a href="./rehome-post.html">Post</a>
+      <a href="./rehome-alert.html">Alerts</a>
+      <a href="./rehome-about.html">About</a>
+    </nav>
+
+    <main class="container board-container">
+      <!-- CATEGORY CHECKLIST -->
+      <div class="check-card">
+        <p>Select categories below and click Submit.</p>
+
+        <div class="listing-block">
+          <div class="listing-categories">
+            <label for="artsCraftsCheck">Arts & Crafts</label>
+            <input type="checkbox" id="artsCraftsCheck" />
+          </div>
+
+          <div class="listing-categories">
+            <label for="homeDecorCheck">Home Decor</label>
+            <input type="checkbox" id="homeDecorCheck" />
+          </div>
+
+          <div class="listing-categories">
+            <label for="homeFurnCheck">Home Furnishings</label>
+            <input type="checkbox" id="homeFurnCheck" />
+          </div>
+
+          <div class="listing-categories">
+            <label for="officeSuppliesCheck">Office Supplies</label>
+            <input type="checkbox" id="officeSuppliesCheck" />
+          </div>
+
+          <div class="listing-categories">
+            <label for="packingMaterialsCheck">Packing Materials</label>
+            <input type="checkbox" id="packingMaterialsCheck" />
+          </div>
+        </div>
+      </div>
+
+      <button id="submitButton" onclick="showPost()">Submit Categories</button>
+
+      <!-- LISTINGS GRID -->
+      <div class="listings-grid">
+        <!-- ===== HOME DECOR ===== -->
+        <div
+          class="post-card item-card home-decor"
+          data-title="1970's Style Plug-in Wall Lamp"
+          data-details="Works great, no shade. 30” body, 60” full assembly. Seller: Joanne Bristol, Bellevue. Email: wall_lamp@bellevuecollege.edu"
+        >
+          <img
+            src="../images/plug-in-wall-lamp.jpg"
+            alt="1970s plug-in wall lamp"
+          />
+          <h2>1970's Style Plug-in Wall Lamp</h2>
+          <p>Works great, no lamp shade. 30” body.</p>
+        </div>
+
+        <div
+          class="post-card item-card home-decor"
+          data-title="Artificial Olive Tree"
+          data-details="6ft tall, pot included. Pickup 5–10 pm weekdays. Seller: Jannet Kesler, Bellevue. Email: j.kesler@bellevuecollege.edu"
+        >
+          <img
+            src="../images/artificial-olive-tree.jpg"
+            alt="Artificial olive tree"
+          />
+          <h2>Artificial Olive Tree</h2>
+          <p>6ft tall, pot included.</p>
+        </div>
+
+        <div
+          class="post-card item-card home-decor"
+          data-title="Decorative Pillows"
+          data-details="Three beige pillows, good condition. Seller: James Bond, Bellevue. Email: bondJamesBond@bellevuecollege.edu"
+        >
+          <img
+            src="../images/decorative-pillows.jpg"
+            alt="Decorative pillows"
+          />
+          <h2>Decorative Pillows</h2>
+          <p>Set of 3 beige pillows.</p>
+        </div>
+
+        <!-- ===== OFFICE SUPPLIES ===== -->
+        <div
+          class="post-card item-card office-supplies"
+          data-title="Assorted Notepads"
+          data-details="WSU notepad + sticky note pad. Pickup Tuesdays 11–11:30am. Seller: Susan B Anthony, Bellevue. Email: bewareTheBee@bellevuecollege.edu"
+        >
+          <img src="../images/assorted-notepads.jpg" alt="Two notepads" />
+          <h2>Assorted Notepads</h2>
+          <p>Two notepads, one sticky pad.</p>
+        </div>
+
+        <!-- ===== ARTS & CRAFTS ===== -->
+        <div
+          class="post-card item-card arts-crafts"
+          data-title="Felting Craft Supplies"
+          data-details="Woolbuddy kit with assorted felting wool and pen tool. Seller: River Song, Bellevue. Email: riverSong@bellevuecollege.edu"
+        >
+          <img src="../images/felting-craft.jpg" alt="Felting wool and tools" />
+          <h2>Felting Craft Supplies</h2>
+          <p>Woolbuddy kit.</p>
+        </div>
+
+        <!-- ===== HOME FURNISHINGS ===== -->
+        <div
+          class="post-card item-card home-furn"
+          data-title="Dining or Desk Chair"
+          data-details="FREE — dark wood chair, padded seat/back. Porch pickup 8–3. Seller: Vera Lynn, Bellevue. Email: veraLynn@bellevuecollege.edu"
+        >
+          <img src="../images/dining-chair.jpeg" alt="Dark wood chair" />
+          <h2>Dining or Desk Chair</h2>
+          <p>FREE — porch pickup only.</p>
+        </div>
+
+        <!-- ===== PACKING MATERIALS ===== -->
+        <div
+          class="post-card item-card packing-materials"
+          data-title="Assorted Boxes & Packing Materials"
+          data-details="Free boxes, kraft paper, foam inserts. Seller: Melody Pond, Bellevue. Email: melodyPond@bellevuecollege.edu"
+        >
+          <img
+            src="../images/assorted-boxes-packing.jpg"
+            alt="Packing materials"
+          />
+          <h2>Assorted Boxes & Packing Materials</h2>
+          <p>FREE boxes & packing materials.</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>© 2025 ReHome — Class Project</p>
+      <p>Kelly Daniel</p>
+    </footer>
+
+    <!-- ===== MODAL ===== -->
+    <div id="itemModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <img id="modal-img" alt="" />
+        <h2 id="modalTitle"></h2>
+        <p id="modalDetails"></p>
+      </div>
+    </div>
+
+    <!-- ===== JS ===== -->
+    <script>
+      /* CATEGORY FILTER */
+      function showPost() {
+        const checks = {
+          "arts-crafts": artsCraftsCheck.checked,
+          "home-decor": homeDecorCheck.checked,
+          "home-furn": homeFurnCheck.checked,
+          "office-supplies": officeSuppliesCheck.checked,
+          "packing-materials": packingMaterialsCheck.checked,
+        };
+
+        document.querySelectorAll(".post-card").forEach((card) => {
+          const category = [...card.classList].find((c) => checks[c]);
+          card.style.display = category ? "block" : "none";
+        });
+      }
+
+      /* MODAL LOGIC */
+      const modal = document.getElementById("itemModal");
+      const modalImg = document.getElementById("modal-img");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalDetails = document.getElementById("modalDetails");
+      const closeBtn = document.querySelector(".close");
+
+      document.querySelectorAll(".item-card").forEach((card) => {
+        card.addEventListener("click", () => {
+          modalImg.src = card.querySelector("img").src;
+          modalTitle.textContent = card.dataset.title;
+          modalDetails.textContent = card.dataset.details;
+          modal.style.display = "block";
+        });
+      });
+
+      closeBtn.onclick = () => (modal.style.display = "none");
+      window.onclick = (e) => {
+        if (e.target === modal) modal.style.display = "none";
+      };
+    </script>
+  </body>
+</html>

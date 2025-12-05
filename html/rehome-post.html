@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="author" content="Kelly Daniel" />
+    <title>ReHome</title>
+    <!-- GOOGLE FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- GLOBAL CSS -->
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <!-- === ACTIVE NAV STATE (auto-highlight current page) === -->
+  <body class="post-page">
+    <!-- GLOBAL HEADER -->
+    <header>
+      <div class="header-inner">
+        <a href="../index.html">
+          <img
+            src="../images/Logo-Img-Green.png"
+            alt="ReHome Logo"
+            class="site-logo"
+          />
+        </a>
+
+        <h1 class="site-title">
+          Post
+          <span class="divider">|</span>
+          <span class="sub-secondary">Pass good things forward</span>
+        </h1>
+      </div>
+    </header>
+    <!-- ==== GLOBAL NAVIGATION ==== -->
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="./rehome-browse.html">Browse</a>
+      <a href="./rehome-post.html">Post</a>
+      <a href="./rehome-alert.html">Alerts</a>
+      <a href="./rehome-about.html">About</a>
+    </nav>
+    <main class="notify-container post-container">
+      <h2>Start Your Post</h2>
+      <p>We just need a few details</p>
+
+      <form id="listingForm">
+        <label for="itemPhoto">Upload a Photo of Your Item</label>
+        <input type="file" name="itemPhoto" id="itemPhoto" required />
+
+        <label for="sellerName">Your Name (required)</label>
+        <input
+          type="text"
+          name="sellerName"
+          id="sellerName"
+          placeholder="Your Name"
+          required
+        />
+
+        <label for="email">Email (required)</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Email"
+          required
+        />
+
+        <label for="item">Item</label>
+        <input
+          type="text"
+          name="item"
+          id="item"
+          placeholder="Item label"
+          required
+        />
+
+        <label for="price">Price</label>
+        <input
+          type="text"
+          name="price"
+          id="price"
+          placeholder="Enter 'free' or an amount less than $20"
+          required
+        />
+
+        <label for="description">Item Description</label>
+        <textarea
+          name="description"
+          id="description"
+          placeholder="Describe your item."
+        ></textarea>
+
+        <div class="category-card">
+          <label>Categories (choose one or more)</label>
+
+          <div class="notify-categories">
+            <label
+              ><input type="checkbox" name="cat" value="Arts Supplies" /> Arts
+              Supplies</label
+            >
+            <label
+              ><input type="checkbox" name="cat" value="Home Decor" /> Home
+              Decor</label
+            >
+            <label
+              ><input type="checkbox" name="cat" value="Home Furnishings" />
+              Home Furnishings</label
+            >
+            <label
+              ><input type="checkbox" name="cat" value="Office Supplies" />
+              Office Supplies</label
+            >
+            <label
+              ><input type="checkbox" name="cat" value="Packing Materials" />
+              Packing Materials</label
+            >
+          </div>
+        </div>
+
+        <div class="category-error-message">
+          Choose at least one category to continue.
+        </div>
+
+        <div class="post-buttons">
+          <button type="submit" class="create-listing-button">
+            Create My Post
+          </button>
+          <button type="reset">Reset</button>
+        </div>
+      </form>
+    </main>
+    <!-- ==== GLOBAL FOOTER ==== -->
+    <footer>
+      <p>
+        © © 2025 ReHome — Created by Kelly Daniel for Bellevue College (DEV 109)
+      </p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("listingForm");
+        const categoryError = document.querySelector(".category-error-message");
+
+        form.addEventListener("submit", (e) => {
+          const checkedCategories = document.querySelectorAll(
+            'input[name="cat"]:checked'
+          );
+
+          // Stop submission if no categories chosen
+          if (checkedCategories.length === 0) {
+            e.preventDefault();
+            categoryError.style.display = "block";
+            return;
+          }
+
+          // Hide error if fixed
+          categoryError.style.display = "none";
+
+          // Gather fields
+          const itemPhoto = document.getElementById("itemPhoto");
+          const sellerName = document.getElementById("sellerName").value.trim();
+          const item = document.getElementById("item").value.trim();
+          const price = document.getElementById("price").value.trim();
+          const description = document
+            .getElementById("description")
+            .value.trim();
+
+          const categories = Array.from(checkedCategories)
+            .map((box) => box.value)
+            .join(", ");
+
+          // Save to localStorage
+          localStorage.setItem("notify_photoName", itemPhoto.name);
+          localStorage.setItem("notify_photoType", itemPhoto.type);
+          localStorage.setItem("notify_sellerName", sellerName);
+          localStorage.setItem("notify_item", item);
+          localStorage.setItem("notify_price", price);
+          localStorage.setItem("notify_description", description);
+          localStorage.setItem("notify_categories", categories);
+
+          // Redirect
+          e.preventDefault();
+          window.location.href = "post-confirmation.html";
+        });
+      });
+    </script>
+  </body>
+</html>

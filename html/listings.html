@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="author" content="Kelly Daniel" />
+    <title>ReHome</title>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- GLOBAL CSS -->
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <!-- === ACTIVE NAV STATE (auto-highlight current page) === -->
+  <body class="listings-page">
+    <!-- GLOBAL HEADER -->
+    <header>
+      <div class="header-inner">
+        <a href="../index.html">
+          <img
+            src="../images/Logo-Img-Green.png"
+            alt="ReHome"
+            class="site-logo"
+          />
+        </a>
+
+        <h1 class="site-title">
+          Browse
+          <span class="divider">|</span>
+          <span class="sub-secondary">Items ready for a new home</span>
+        </h1>
+      </div>
+    </header>
+    <!-- ==== GLOBAL NAVIGATION ==== -->
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="./rehome-browse.html">Browse</a>
+      <a href="./rehome-post.html">Post</a>
+      <a href="./rehome-alert.html">Alerts</a>
+      <a href="./rehome-about.html">About</a>
+    </nav>
+
+    <main class="container board-container">
+      <div class="check-card">
+        <p>
+          Please select the categories you want to view from the checklist below
+          and then click submit categories to load the categories requested.
+        </p>
+        <div class="listing-block">
+          <div class="listing-categories">
+            <label for="artsCraftsCheck">Arts & Crafts</label>
+            <input type="checkbox" id="artCraftsCheck" name="arts-crafts" />
+          </div>
+
+          <div class="listing-categories">
+            <label for="homeDecorCheck">Home Decor</label>
+            <input type="checkbox" id="homeDecorCheck" name="home-decor" />
+          </div>
+
+          <div class="listing-categories">
+            <label for="homeFurnCheck">Home Furnishings</label>
+            <input type="checkbox" id="homeFurnCheck" name="home-furn" />
+          </div>
+
+          <div class="listing-categories">
+            <label for="officeSuppliesCheck">Office Supplies</label>
+            <input
+              type="checkbox"
+              id="officeSuppliesCheck"
+              name="office-supplies"
+            />
+          </div>
+
+          <div class="listing-categories">
+            <label for="packingMaterialsCheck">Packing Materials</label>
+            <input
+              type="checkbox"
+              id="packingMaterialsCheck"
+              name="packing-materials"
+            />
+          </div>
+        </div>
+      </div>
+      <button id="submitButton" onclick="showPost()">Submit Categories</button>
+      <!-- ====== Home Decor ====== -->
+      <div class="listings-grid">
+        <div class="post-card home-decor">
+          <h2>70's Style Wall Lamp</h2>
+          <p><b>Seller's Name:</b> Joanne Bristol</p>
+          <p><b>City:</b> Bellevue</p>
+          <p><b>Seller's Email:</b> wall_lamp@bellevuecollege.edu</p>
+          <p><b>Category:</b> Home Decor</p>
+          <img
+            src="../images/plug-in-wall-lamp.jpg"
+            alt="A 1970's plug in wall lamp, brown handle, no lamp shade."
+            class="listing-image-container"
+          />
+          <p>
+            Works great, no lamp shade. Old 2-prong plug. Body is 30” long, full
+            assembly about 60”.
+          </p>
+        </div>
+
+        <div class="post-card home-decor">
+          <h2>Artificial Olive Tree</h2>
+          <p><b>Seller's Name:</b> Jannet Kesler</p>
+          <p><b>City:</b> Bellevue</p>
+          <p><b>Seller's Email:</b> j.kesler@bellevuecollege.edu</p>
+          <p><b>Category:</b> Home Decor</p>
+          <img
+            src="../images/artificial-olive-tree.jpg"
+            alt="Artificial olive tree with realistic leaves"
+            class="listing-image-container"
+          />
+          <p>
+            About 6ft tall, pot included. Pickup available 5–10 pm on weekdays.
+          </p>
+        </div>
+
+        <div class="post-card home-decor">
+          <h2>Decorative Pillows</h2>
+          <p><b>Seller's Name:</b> James Bond</p>
+          <p><b>City:</b> Bellevue</p>
+          <p><b>Seller's Email:</b> bondJamesBond@bellevuecollege.edu</p>
+          <p><b>Category:</b> Home Decor</p>
+          <img
+            src="../images/decorative-pillows.jpg"
+            alt="A set of three decorative pillows"
+            class="listing-image-container"
+          />
+          <p>
+            Three beige pillows, good condition. Must meet in public location.
+          </p>
+        </div>
+
+        <div class="post-card office-supplies">
+          <h2>Assorted Notepads</h2>
+          <p><b>Seller's Name:</b> Susan B Anthony</p>
+          <p><b>City:</b> Bellevue</p>
+          <p><b>Seller's Email:</b> bewareTheBee@bellevuecollege.edu</p>
+          <p><b>Category:</b> Office Supplies</p>
+          <img
+            src="../images/assorted-notepads.jpg"
+            alt="Two notepads stacked on top of each other"
+            class="listing-image-container"
+          />
+          <p>
+            Two notepads. One 4.5×5” WSU pad, one sticky note pad. Pickup
+            Tuesdays 11–11:30 am.
+          </p>
+        </div>
+
+        <!-- ====== Arts & Crafts ====== -->
+        <div class="post-card arts-crafts">
+          <h2>Felting Craft Supplies</h2>
+          <p><b>Seller's Name:</b> River Song</p>
+          <p><b>City:</b> Bellevue</p>
+          <p><b>Seller's Email:</b> riverSong@bellevuecollege.edu</p>
+          <p><b>Category:</b> Arts & Crafts</p>
+          <img
+            src="../images/felting-craft.jpg"
+            alt="Felting wool and needles in an opened box."
+            class="listing-image-container"
+          />
+          <p>
+            Woolbuddy kit with assorted felting wool and pen tool. Porch pickup
+            only. $5 or best offer.
+          </p>
+        </div>
+
+        <!-- ====== Home Furnishings ====== -->
+        <div class="post-card home-furn">
+          <h2>Dining or Desk Chair</h2>
+          <p><b>Seller's Name:</b> Vera Lynn</p>
+          <p><b>City:</b> Bellevue</p>
+          <p><b>Seller's Email:</b> veraLynn@bellevuecollege.edu</p>
+          <p><b>Category:</b> Home Furnishings</p>
+          <img
+            src="../images/dining-chair.jpeg"
+            alt="Dark wood chair with a black padded seat and backrest"
+            class="listing-image-container"
+          />
+          <p>
+            FREE — Porch pickup only (8am–3pm). Sturdy dark-wood dining or desk
+            chair in great condition.
+          </p>
+        </div>
+
+        <!-- ====== Packing Materials ====== -->
+        <div class="post-card packing-materials">
+          <h2>Assorted Boxes</h2>
+          <p><b>Seller's Name:</b> Melody Pond</p>
+          <p><b>City:</b> Bellevue</p>
+          <p><b>Seller's Email:</b> melodyPond@bellevuecollege.edu</p>
+          <p><b>Category:</b> Packing Materials</p>
+          <img
+            src="../images/assorted-boxes-packing.jpg"
+            alt="Cardboard boxes and crumpled kraft paper."
+            class="listing-image-container"
+          />
+          <p>
+            FREE assorted boxes, kraft paper, and foam inserts. Porch pickup or
+            can meet.
+          </p>
+        </div>
+      </div>
+    </main>
+    <!-- ==== GLOBAL FOOTER ==== -->
+    <footer>
+      <p>© 2025 ReHome — Class Project</p>
+      <p>Kelly Daniel</p>
+    </footer>
+
+    <script>
+      function showPost() {
+        // Finds all checkboxes
+        const checks = document.querySelectorAll('input[type="checkbox"]');
+
+        // Finds all post cards
+        const cards = document.querySelectorAll(".post-card");
+
+        // Hide everything first
+        cards.forEach((card) => (card.style.display = "none"));
+
+        // LOOP Show cards for checked categories
+        checks.forEach((check) => {
+          if (check.checked) {
+            const className = check.name;
+            document
+              .querySelectorAll("." + className)
+              .forEach((card) => (card.style.display = "block"));
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

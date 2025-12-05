@@ -1,0 +1,1026 @@
+/* =========================================
+   ReHome — GLOBAL STYLE SHEET
+   Author:  Kelly Daniel
+   Purpose: Shared styles for the full website
+   ========================================= */
+/* "Rehome" — Solo extended version of my Fall 2025 DEV109 group project.
+   Original group: Four Functioneers. This version: Kelly Daniel. */
+/* =========================================
+   1. GLOBAL + BASE ELEMENTS
+   ========================================= */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  height: auto;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+  background-color: #f0efea; /* warm neutral */
+  color: #222;
+  line-height: 1.5;
+  background-image: url("./images/bing-img-background-subtle-1.jpeg");
+  background-size: 600px;
+  background-repeat: repeat;
+  background-position: top left;
+  background-attachment: fixed; /* change to background-attachment:  fixed; if still stuck on laptops */
+}
+
+/* Fade the wallpaper background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: rgba(240, 239, 234, 0.6); /* 0.60 = subtle, 0.75 = very faint) */
+  z-index: -1;
+}
+
+main {
+  flex: 1; /* footer stays at bottom */
+}
+
+/* =========================================
+   2. HEADER + FOOTER
+   ========================================= */
+header,
+footer {
+  background-color: rgba(51, 65, 85, 0.92); /* slate blue translucent */
+  color: #fafaf8;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  padding: 2.5rem 1rem 2rem;
+}
+
+header h1 {
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.25rem;
+}
+
+header .tagline {
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+footer {
+  padding: 1rem 0;
+  min-height: 80px;
+}
+
+footer p {
+  font-size: 0.9rem;
+  margin: 0.25rem 0;
+}
+
+/* ============================================
+   2.b. GLOBAL HEADER ELEMENTS 
+   ============================================ */
+/* === Header Logo + Title Alignment  === */
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 1px; /* spacing between logo + text */
+}
+
+/* Standard logo */
+.site-logo {
+  height: 80px;
+  width: auto;
+  display: block;
+  margin-top: 25px;
+}
+
+/* Big page title text. */
+.site-title {
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: #fafaf8;
+}
+
+/* Tagline after title, smaller lighter, elegant styling.*/
+.sub-secondary {
+  font-size: 0.8em;
+  font-weight: 300;
+  opacity: 95;
+}
+
+/* Vertical green bar.*/
+.divider {
+  color: #99d98c;
+  opacity: 0.7;
+  font-weight: 300;
+  margin: 0 0.5rem;
+  line-height: 1.4;
+}
+/* =========================================
+   3. GLOBAL TYPOGRAPHY
+   ========================================= */
+h2 {
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: #334155; /* slate blue */
+  margin: 0 0 0.75rem;
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #334155;
+  margin: 0.75rem 0 0.5rem;
+  letter-spacing: 0.2px;
+}
+
+/* =========================================
+   4. GLOBAL FORM TYPOGRAPHY SYSTEM
+   ========================================= */
+
+/* Labels (aligned with global h3 tone) helps grouping of form inputs */
+label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #334155;
+  margin-bottom: 0.35rem;
+  display: block;
+}
+
+/* Inputs, selects, textareas - Soft borders, subtle shadow on focus.
+Matches ADA guidelines */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 400;
+  color: #333;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  transition: all 0.2s ease;
+}
+
+/* Focus rings */
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #2563eb;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);
+}
+
+/* Checkbox */
+input[type="checkbox"] {
+  width: auto;
+  height: auto;
+  margin-right: 0.4rem;
+  accent-color: #2563eb;
+}
+
+/* Placeholder text (Safari needs extra help) */
+::placeholder {
+  color: #94a3b8; /* slate-400 */
+  opacity: 1;
+}
+
+/* Small helper text. appears under inputs */
+small {
+  display: block;
+  margin-top: 0.25rem;
+  color: #555;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* Small helper text. appears under inputs. this one is notify page specific */
+.frequency-help {
+  display: block;
+  margin-top: -0.5rem;
+  margin-bottom: 1.2rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Error message used in the JS */
+.category-error-message {
+  display: none; /* stays hidden until JS shows it */
+  color: #b91c1c;
+  font-weight: 600;
+  margin: -0.5rem 0 0.75rem;
+}
+
+/* =========================================
+   5. GLOBAL NAVIGATION
+   ========================================= */
+nav {
+  background-color: #475569; /* slate grey-blue */
+  padding: 0.75rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+nav a {
+  color: #fafaf8;
+  text-decoration: none;
+  width: 120px; /* fixed width for uniform buttons */
+  padding: 0.7rem 0;
+  text-align: center;
+  font-weight: 500;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  transition: all 0.15s ease;
+}
+
+nav a:hover {
+  background-color: rgba(240, 239, 234, 0.3); /* soft neutral */
+}
+
+/* ACTIVE NAV STATE FOR REHOME */
+.home-page nav a[href="../index.html"],
+.browse-page nav a[href="./rehome-browse.html"],
+.post-page nav a[href="./rehome-post.html"],
+.alert-page nav a[href="./rehome-alert.html"],
+.about-page nav a[href="./rehome-about.html"] {
+  background-color: rgba(153, 217, 140, 0.18);
+  font-weight: 600;
+  color: #fafaf8;
+  box-shadow: 0 0 2px rgba(71, 85, 105, 0.45), 0 4px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================================
+   6. GLOBAL BUTTONS (all non-nav buttons)
+   ========================================= */
+button[type="submit"],
+button,
+.btn,
+.confirm-btn {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #7fb878; /* changed to a bit darker sage green */
+  color: #ffffff;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.4rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 6px #444;
+}
+
+button[type="submit"]:hover,
+.btn:hover,
+.confirm-btn:hover,
+.notify-container button[type="submit"]:hover {
+  background-color: #588b51;
+}
+
+/* Confirm button layout */
+.confirm-btn {
+  display: block;
+  margin: 1.5rem auto 0 auto;
+  width: fit-content;
+}
+
+/* Spacing for multiple inline buttons */
+button + button,
+.btn + .btn {
+  margin-left: 0.75rem;
+}
+
+/* =========================================
+   7.a. LAYOUT HELPERS
+   ========================================= */
+
+/* Centers page content and adds horizontal padding.
+   Keeps page from stretching edge to edge.*/
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+/* Instantly hides an element, js uses this.*/
+.hidden {
+  display: none !important;
+}
+/* Simple text-centering helper.*/
+.center {
+  text-align: center;
+}
+
+/*centers any button or element*/
+.btn-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+}
+/*right align any button or element*/
+.btn-right {
+  display: block;
+  margin-left: auto;
+  width: fit-content;
+}
+/*full width*/
+.btn-full {
+  width: 100%;
+}
+/* =========================================
+   8. HERO SECTION
+   ========================================= */
+.hero {
+  width: 100%;
+  height: 500px;
+  background-image: url("../images/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 0 0 6px 6px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: inherit;
+  background-size: inherit;
+  background-position: inherit;
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  padding-bottom: 60px;
+}
+
+.hero-overlay h1 {
+  font-size: 1.8rem;
+  color: #99d98c;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+/* =========================================
+   9. HOME PAGE
+   ========================================= */
+.home-sections {
+  margin-top: 2rem;
+}
+
+.home-sections h2 {
+  border-bottom: 3px solid rgba(153, 217, 140, 0.5);
+  padding: 0.2rem 0.5rem;
+  display: inline-block;
+}
+
+.intro {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.intro h2 {
+  font-size: 1.8rem;
+  color: #334155;
+}
+
+.intro p {
+  max-width: 650px;
+  margin: 0.5rem auto;
+  font-size: 1rem;
+  color: #444;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.card {
+  background-color: rgba(255, 253, 248, 0.45);
+  padding: 1.5rem;
+  border-radius: 35px;
+  text-decoration: none;
+  color: inherit;
+  border: 0.5px solid #e5e7eb;
+  box-shadow: 0 4px 10px rgba(77, 127, 70, 1);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  border-color: rgb(77, 127, 70, 1);
+}
+
+.welcome-card {
+  background-color: rgba(255, 253, 248, 0.45);
+  padding: 1.5rem;
+  border-radius: 35px;
+  text-decoration: none;
+  color: inherit;
+  border: 0.5px solid #e5e7eb;
+  box-shadow: 0 4px 10px rgba(77, 127, 70, 1);
+}
+
+.card h3 {
+  margin-top: 0;
+  font-size: 1.25rem;
+  color: #1e3a8a;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+/* =========================================
+   10. Post-Item Form
+   ========================================= */
+
+.post-page .post-buttons {
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  align-items: center; /* center horizontally */
+  gap: 1rem; /* add space between buttons */
+  margin-top: 1.75rem;
+}
+
+/* Base button styling */
+.post-page .post-buttons button {
+  width: fit-content;
+  padding: 0.6rem 1.4rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Reset button */
+.post-page button[type="reset"] {
+  background-color: #4d7f46;
+}
+.post-page button[type="reset"]:hover {
+  background-color: #35552f;
+}
+
+/*    Post Page Container bg color Override   */
+
+.post-page .notify-container {
+  background-color: rgba(255, 253, 248, 0.65);
+}
+/* ============================
+   11. Board/Listings Page Styles 
+   ============================ */
+
+.board-container {
+  padding: 1rem 0;
+}
+
+.board-container form {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.board-container input[type="text"] {
+  max-width: 90%;
+}
+
+/* ===== GRID FOR ALL POSTS (NEW GLOBAL LISTINGS GRID) ===== */
+.listings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.listings-grid img,
+.item-card img,
+.listing-image-container {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+/* ===== INTERACTIVE CARD HOVER EFFECT (same style as Home page) ===== */
+.item-card {
+  background-color: #fffdf8;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    border-color 0.15s ease;
+  cursor: pointer;
+}
+
+.item-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  border-color: #cbd5e1;
+}
+
+.listing-block {
+  display: flex;
+  flex-direction: row;
+}
+
+.listing-categories {
+  display: flex;
+  /*flex-wrap: wrap; <--add if you want the row to auto wrap w/more categories*/
+  width: 1fr;
+  padding: 5px;
+  margin: 15px;
+}
+
+.post-card {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 1rem;
+  margin: 0;
+}
+
+.post-card h2 {
+  margin-top: 0;
+}
+
+.post-card-contact {
+  font-size: 0.9rem;
+  color: #555;
+}
+/* Hidden sections until checked, added other categories */
+.arts-crafts,
+.home-decor,
+.home-furn,
+.office-supplies,
+.packing-materials {
+  display: none;
+}
+
+input[type="checkbox"] {
+  transform: scale(1);
+  margin-left: 1rem;
+}
+/* ============================
+   MODAL OVERLAY
+   ============================ */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 9999; /* Above everything */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Scroll if needed */
+  background-color: rgba(0, 0, 0, 0.6); /* dim background */
+  padding: 40px 20px;
+}
+
+/* ============================
+   MODAL CONTENT BOX
+   ============================ */
+.modal-content {
+  background: #fff;
+  margin: auto;
+  padding: 1.5rem;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  animation: modalFadeIn 0.3s ease;
+}
+
+/* ============================
+   CLOSE BUTTON
+   ============================ */
+.close {
+  color: #555;
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #000;
+}
+
+/* ============================
+   MODAL IMAGE
+   ============================ */
+#modal-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* ============================
+   MODAL TEXT STYLES
+   ============================ */
+#modal-title {
+  margin: 0 0 0.5rem;
+}
+
+#modal-location {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+#modal-details {
+  line-height: 1.4;
+  color: #333;
+}
+
+/* ============================
+   SMOOTH FADE-IN
+   ============================ */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ============================
+   12. NOTIFY PAGE (Form + Confirmation) **USED ON POST FORM TOO
+   ============================ */
+
+/* Main centered card for the Alert form & Confirmation page */
+.notify-container {
+  width: 90%;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: rgba(255, 253, 248, 0.65);
+  border-radius: 35px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 20px rgba(77, 127, 70, 0.5);
+}
+
+/* Page heading */
+.notify-container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Intro paragraph */
+.notify-container p {
+  text-align: center;
+  margin: 0.75rem 0 1.75rem;
+  color: #1e3a8a;
+}
+
+/* Category checkbox layout */
+.notify-categories {
+  margin-bottom: 1.5rem;
+}
+
+.notify-categories label {
+  display: block;
+  padding: 0.2rem;
+  margin-bottom: 0.6rem;
+  color: #1e3a8a;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.notify-categories label:hover {
+  background-color: #fffdf8;
+}
+
+/* White blocks around groups on form & confirmation */
+.category-card,
+.confirm-card {
+  background: #fafafa;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 1.25rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.category-card > label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+}
+
+.category-card .notify-categories label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Error message for missing categories */
+.category-error-message {
+  display: none;
+  color: #b91c1c;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Submit + return buttons */
+.confirm-btn,
+.notify-container button[type="submit"] {
+  /* centers button to container */
+  display: block;
+  margin: 1.5rem auto 0 auto;
+  width: fit-content;
+  /* -------------------- */
+  padding: 0.6rem 1.4rem;
+  box-shadow: 0 2px 6px #444;
+  font-weight: 500;
+  text-align: center;
+  background-color: #7fb878;
+  color: #fff;
+  border-radius: 6px;
+}
+
+/* For visual grouping on confirmation page */
+.check-card {
+  display: block;
+  background-color: rgba(255, 253, 248, 0.65);
+  padding: 1.5rem;
+  border-radius: 35px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 2px 6px rgb(53, 85, 47, 1);
+  border: 1px solid #e2e8f0;
+  margin-bottom: 1rem;
+}
+
+/* =========================================
+   12.b NOTIFY CONFIRMATION STYLES
+   ========================================= */
+
+/* Confirmation greeting */
+.confirm-greeting {
+  text-align: center;
+  color: #1e3a8a;
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+/* “Here are your alert details” line */
+.confirm-card > p:nth-of-type(2) {
+  text-align: center;
+  margin-bottom: 1.2rem;
+  color: #334155;
+}
+
+/* Details list */
+.confirm-details-list {
+  list-style-type: disc;
+  padding-left: 1.3rem;
+  line-height: 1.6;
+  color: #334155;
+}
+
+/* ======================================================
+   13. RESPONSIVE DESIGN — CLEAN
+   ====================================================== */
+
+/* ===== MOBILE (max-width: 600px) ===== */
+@media (max-width: 600px) {
+  /* Header */
+  header h1 {
+    font-size: 1.6rem;
+  }
+
+  header .tagline {
+    font-size: 0.95rem;
+    padding: 0 1rem;
+  }
+
+  /* Navigation */
+  nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  nav a {
+    display: block;
+    margin: 0.25rem 0;
+  }
+
+  /* Intro text */
+  .intro h2 {
+    font-size: 1.5rem;
+  }
+
+  .intro p {
+    font-size: 0.95rem;
+    padding: 0 0.5rem;
+  }
+
+  /* HERO  */
+  .hero {
+    height: 300px;
+  }
+
+  .hero-overlay {
+    padding-top: 60px;
+    backdrop-filter: none !important;
+    background: rgba(0, 0, 0, 0.35);
+  }
+
+  .hero-overlay h1 {
+    font-size: 1.3rem;
+  }
+
+  .hero::before {
+    background-image: url("../images/hero.jpg");
+    opacity: 0.15;
+  }
+
+  /* Post page container */
+  .post-container {
+    padding: 1.5rem 1.25rem;
+  }
+
+  /* Listings grid — mobile */
+  .listings-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .item-card img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* ===== SMALL TABLET / NARROW FORMS (max-width: 700px) ===== */
+@media (max-width: 700px) {
+  form {
+    padding: 12px 16px;
+  }
+
+  input,
+  select,
+  textarea {
+    padding: 7px 9px;
+    margin-bottom: 10px;
+  }
+
+  label {
+    margin-bottom: 3px;
+  }
+}
+
+/* ===== TABLET (max-width: 900px) ===== */
+@media (max-width: 900px) {
+  nav a {
+    padding: 0.35rem 0.75rem;
+    margin: 0 0.5rem;
+  }
+
+  .container {
+    width: 95%;
+  }
+
+  .intro h2 {
+    font-size: 1.7rem;
+  }
+
+  .card-grid {
+    gap: 1rem;
+  }
+
+  .hero {
+    height: 400px;
+  }
+
+  .hero-overlay {
+    padding-top: 100px;
+  }
+
+  .hero-overlay h1 {
+    font-size: 1.6rem;
+  }
+
+  /* Category list */
+  .listing-block {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .listing-categories {
+    width: 30%;
+    margin: 10px 0;
+  }
+
+  /* Listings grid — tablet */
+  .listings-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+/* ===== MID-MOBILE — 2 per row (max-width: 650px) ===== */
+@media (max-width: 650px) {
+  .listing-categories {
+    width: 45%;
+  }
+}
+
+/* ===== SMALL PHONES — 1 per row (max-width: 420px) ===== */
+@media (max-width: 420px) {
+  .listing-categories {
+    width: 100%;
+  }
+}
+/* ===== MODAL RESPONSIVE SIZING ===== */
+.modal-content {
+  width: 90%;
+  max-width: 500px;
+  margin: 10% auto;
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 900px) {
+  .modal-content {
+    max-width: 420px;
+    margin: 15% auto;
+  }
+}
+
+/* Small screens (phones) */
+@media (max-width: 600px) {
+  .modal-content {
+    width: 92%;
+    max-width: 360px;
+    margin: 20% auto;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 400px) {
+  .modal-content {
+    width: 95%;
+    max-width: 320px;
+    margin: 25% auto;
+  }
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Four Functioneers" />
+    <title>ReHome</title>
+
+    <!-- GOOGLE FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- GLOBAL CSS -->
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <!-- === ACTIVE NAV STATE (auto-highlight current page) === -->
+  <body class="post-page">
+    <!-- GLOBAL HEADER -->
+    <header>
+      <div class="header-inner">
+        <a href="../index.html">
+          <img
+            src="../images/Logo-Img-Green.png"
+            alt="ReHome"
+            class="site-logo"
+          />
+        </a>
+
+        <h1 class="site-title">
+          Confirmation
+          <span class="divider">|</span>
+          <span class="sub-secondary">Your post was successfully created</span>
+        </h1>
+      </div>
+    </header>
+
+    <!-- === GLOBAL NAVIGATION === -->
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="./rehome-browse.html">Browse</a>
+      <a href="./rehome-post.html">Post</a>
+      <a href="./rehome-alert.html">Alerts</a>
+      <a href="./rehome-about.html">About</a>
+    </nav>
+
+    <main class="notify-container">
+      <h2>Listing Confirmation</h2>
+
+      <div class="confirm-card">
+        <p class="confirm-greeting">
+          Thanks, <span id="firstName">there</span> — you're all set!
+        </p>
+        <p>Here are your listing details:</p>
+
+        <ul class="confirm-details-list">
+          <li><strong>Item:</strong> <span id="confItem"></span></li>
+          <li><strong>Price:</strong> <span id="confPrice"></span></li>
+          <li><strong>Description:</strong> <span id="confDescribe"></span></li>
+          <li><strong>Category:</strong> <span id="confCategory"></span></li>
+        </ul>
+      </div>
+
+      <a href="./post-item.html" class="confirm-btn"> Post another item. </a>
+    </main>
+    <!-- ==== GLOBAL FOOTER ==== -->
+    <footer>
+      <p>© 2025 ReHome — Class Project</p>
+      <p>Kelly Daniel</p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // 1. Get values from localStorage
+        const firstName = localStorage.getItem("notify_firstName") || "there";
+        const item = localStorage.getItem("notify_item") || "";
+        const price = localStorage.getItem("notify_price") || "";
+        const description = localStorage.getItem("notify_description") || "";
+        const categories = localStorage.getItem("notify_categories") || "";
+
+        // 2. Grab the span elements
+        const nameOut = document.getElementById("firstName");
+        const itemOut = document.getElementById("confItem");
+        const priceOut = document.getElementById("confPrice");
+        const descOut = document.getElementById("confDescribe");
+        const categoriesOut = document.getElementById("confCategory");
+
+        // 3. Fill the page
+        nameOut.textContent = firstName;
+        itemOut.textContent = item;
+        priceOut.textContent = price;
+        descOut.textContent = description;
+        categoriesOut.textContent = categories || "No category selected";
+      });
+
+      // 4. Friendly fallbacks + formatting
+      if (firstName) {
+        nameOut.textContent = firstName;
+      } else {
+        nameOut.textContent = "there";
+      }
+
+      categoriesOut.textContent = categories || "Not specified";
+
+      // let freqLabel = "";
+      // switch (frequency) {
+      //   case "immediate":
+      //     freqLabel = "Immediately";
+      //     break;
+      //   case "daily":
+      //         freqLabel = "Daily Summary";
+      //         break;
+      //       case "weekly":
+      //         freqLabel = "Weekly Summary";
+      //         break;
+      //       default:
+      //         freqLabel = "Not specified";
+      //     }
+      //     frequencyOut.textContent = freqLabel;
+
+      //     cityOut.textContent = city || "Not specified";
+      //     emailOut.textContent = email || "Not specified";
+      //   });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Kelly Daniel" />
+    <title>ReHome</title>
+
+    <!-- GOOGLE FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- GLOBAL CSS -->
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <!-- === ACTIVE NAV STATE (auto-highlight current page) === -->
+  <body class="alert-page">
+    <!-- GLOBAL HEADER -->
+    <header>
+      <div class="header-inner">
+        <a href="../index.html">
+          <img
+            src="../images/Logo-Img-Green.png"
+            alt="ReHome Logo"
+            class="site-logo"
+          />
+        </a>
+
+        <h1 class="site-title">
+          Alerts
+          <span class="divider">|</span>
+          <span class="sub-secondary">Never miss what matters</span>
+        </h1>
+      </div>
+    </header>
+
+    <!-- === GLOBAL NAVIGATION === -->
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="./rehome-browse.html">Browse</a>
+      <a href="./rehome-post.html">Post</a>
+      <a href="./rehome-alert.html">Alerts</a>
+      <a href="./rehome-about.html">About</a>
+    </nav>
+
+    <!-- === MAIN CONTENT === -->
+    <main class="notify-container">
+      <h2>You're One Step Closer</h2>
+      <p>
+        Enter the required information and choose at least one category to
+        follow.
+      </p>
+
+      <form>
+        <!-- “First Name” field  (required) -->
+
+        <label for="yourName">Your Name (required)</label>
+        <input
+          type="text"
+          id="yourName"
+          name="yourName"
+          placeholder="Your name"
+          required
+        />
+
+        <label for="email">Email (required)</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="you@example.com"
+          required
+        />
+
+        <!-- “City” dropdown (Bellevue only, required) -->
+
+        <label for="city">City (required)</label>
+        <select id="city" name="city" required>
+          <option value="" disabled selected>Select your city</option>
+          <option value="Bellevue">Bellevue</option>
+        </select>
+
+        <div class="category-card">
+          <label>Categories (choose one or more)</label>
+
+          <div class="notify-categories">
+            <label
+              ><input type="checkbox" name="cat" value="Arts Crafts" /> Arts &
+              Crafts</label
+            >
+            <label
+              ><input type="checkbox" name="cat" value="Home Decor" /> Home
+              Decor</label
+            >
+            <label
+              ><input type="checkbox" name="cat" value="Home Furnishings" />
+              Home Furnishings</label
+            >
+            <label
+              ><input type="checkbox" name="cat" value="Office Supplies" />
+              Office Supplies</label
+            >
+            <label
+              ><input type="checkbox" name="cat" value="Packing Materials" />
+              Packing Materials</label
+            >
+          </div>
+        </div>
+
+        <!-- Category checkbox requirement message (use JS later) -->
+        <div class="category-error-message">
+          Choose at least one category to continue.
+        </div>
+
+        <!-- “Notification Frequency” dropdown -->
+
+        <label for="frequency">Alert Frequency (required)</label>
+
+        <select id="frequency" name="frequency" required>
+          <option value="" disabled selected>Select frequency</option>
+
+          <option
+            value="immediately"
+            title="Get an email each time a new item is posted in your selected categories."
+          >
+            Immediately
+          </option>
+
+          <option
+            value="daily"
+            title="Receive one message each evening with all new items from today."
+          >
+            Daily Summary
+          </option>
+
+          <option
+            value="weekly"
+            title="Receive a weekly roundup of all new items posted in your chosen categories."
+          >
+            Weekly Summary
+          </option>
+        </select>
+        <!-- Consent checkbox (“I agree to receive notifications”) -->
+
+        <label class="consent-label">
+          <input type="checkbox" id="consent" name="consent" required />
+          I agree to receive email notifications about new items.
+          <small>Your email will only be used for ReHome notifications.</small>
+        </label>
+
+        <button type="submit" class="btn">Create My Alerts</button>
+      </form>
+    </main>
+    <!-- ==== GLOBAL FOOTER ==== -->
+    <footer>
+      <p>© 2025 ReHome — Class Project</p>
+      <p>Kelly Daniel</p>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.querySelector("form");
+        const categoryError = document.querySelector(".category-error-message");
+
+        form.addEventListener("submit", (e) => {
+          // Look for all checked categories
+          const checkedCategories = document.querySelectorAll(
+            'input[name="cat"]:checked'
+          );
+
+          // If none are checked, show the error message and stop submission
+          if (checkedCategories.length === 0) {
+            e.preventDefault();
+            categoryError.style.display = "block";
+            return;
+          } else {
+            // Hide error if previously shown
+            categoryError.style.display = "none";
+          }
+          // If category requirement is satisfied
+          // local store and redirect
+
+          // --- Collect values from the form ---
+          const yourName = document.getElementById("yourName").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const city = document.getElementById("city").value;
+          const frequency = document.getElementById("frequency").value;
+          const consent = document.getElementById("consent").checked;
+
+          // Convert checked categories to a string
+          const categories = Array.from(
+            document.querySelectorAll('input[name="cat"]:checked')
+          )
+            .map((box) => box.value)
+            .join(", ");
+
+          // --- Save everything to localStorage ---
+          localStorage.setItem("notify_yourName", yourName);
+          localStorage.setItem("notify_email", email);
+          localStorage.setItem("notify_city", city);
+          localStorage.setItem("notify_categories", categories);
+          localStorage.setItem("notify_frequency", frequency);
+          localStorage.setItem("notify_consent", consent ? "yes" : "no");
+
+          // --- Redirect to confirmation page ---
+          e.preventDefault();
+          window.location.href = "./notify-confirmation.html";
+        });
+      });
+    </script>
+  </body>
+</html>
