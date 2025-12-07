@@ -466,6 +466,7 @@ button + button,
   transform: translateY(-4px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
   border-color: rgb(77, 127, 70, 1);
+background-color: rgba(143, 185, 140, 0.15);
 }
 
 .welcome-card {
